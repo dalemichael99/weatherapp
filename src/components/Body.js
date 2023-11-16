@@ -24,16 +24,16 @@ const Body = () => {
     }, []);
   
     const fetchData = async (location) => {
-      try {
-        setLoading(true);
-        const response = await fetch(`http://127.0.0.1:5000/api/weather?location=${location}`);
-        const data = await response.json();
-        setApiData(data);
-      } catch (error) {
-        setError(error.message || 'Something went wrong');
-      } finally {
-        setLoading(false);
-      }
+      setLoading(true);
+      await fetch(`http://127.0.0.1:5000/api/weather?location=${location}`)
+        .then(response => response.json())
+        .then(data => {
+          setApiData(data);
+        })
+        .catch(error => {
+          setError(error.message || 'Something went wrong');
+        })
+        .finally(() => setLoading(false));
     };
 
     return (
