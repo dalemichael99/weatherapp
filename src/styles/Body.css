@@ -1,9 +1,19 @@
+.body-container {
+  display: flex;
+  justify-content: center;
+}
+
+.button-and-api-container {
+  display: flex;
+  align-items: flex-start;
+}
+
 .button-container {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-start;
+    margin-left: 20px;
   }
   
   button {
@@ -26,3 +36,6 @@
     border-color: #474747;
   }  
   
+  .api-info-container {
+    margin-left: 50px;
+  }
